@@ -14,6 +14,7 @@ resource "kubernetes_horizontal_pod_autoscaler_v2" "main" {
     max_replicas = var.max_replicas
 
     scale_target_ref {
+      api_version = "apps/v1"
       kind = "Deployment"
       name = kubernetes_deployment.main.metadata[0].name
     }
